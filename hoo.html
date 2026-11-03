@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Febrille Pigasen Tewac | BSIT Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#FFE566',
+                            DEFAULT: '#FFD700',
+                            dark: '#B8860B',
+                            amber: '#F5B041'
+                        },
+                        dark: {
+                            bg: '#08080a',
+                            card: '#121218',
+                            hover: '#1a1a24',
+                            border: '#2a2a38'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace'],
+                        display: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Styling & Futuristic Glow Effects */
+        body {
+            background-color: #08080a;
+            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF099 0%, #FFD700 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-border-glow {
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .gold-border-glow:hover {
+            border-color: rgba(255, 215, 0, 0.6);
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.2);
+        }
+
+        .glass-panel {
+            background: rgba(18, 18, 24, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Tech grid lines overlay background */
+        .bg-grid-pattern {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+        }
+
+        /* Pulse glowing animation */
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.4; filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)); }
+            50% { opacity: 0.8; filter: drop-shadow(0 0 18px rgba(255, 215, 0, 0.8)); }
+        }
+
+        .animate-pulse-glow {
+            animation: pulse-glow 3s infinite ease-in-out;
+        }
+
+        /* Float animation for cards */
+        @keyframes float-smooth {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .animate-float {
+            animation: float-smooth 4s ease-in-out infinite;
+        }
+
+        /* Scanline HUD effect */
+        .hud-scanline {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.8), transparent);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scanline 4s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { top: 0%; opacity: 0; }
+            15% { opacity: 1; }
+            85% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #08080a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2a2a38;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FFD700;
+        }
+    </style>
+</head>
+<body class="bg-grid-pattern relative">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 transition-all duration-300 glass-panel border-b border-white/5" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center font-display font-bold text-dark-bg text-xl shadow-lg shadow-gold/20 group-hover:scale-105 transition-transform">
+                    F
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-extrabold text-xl tracking-wider text-white group-hover:text-gold transition-colors">
+                        ITS <span class="gold-gradient-text">FEBRILLE</span>
+                    </span>
+                    <span class="text-[10px] font-mono text-gray-400 tracking-widest uppercase">BSIT Portfolio</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+                <a href="#home" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-gold hover:bg-white/5 transition-all">Home</a>
+                <a href="#personal" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-gold hover:bg-white/5 transition-all">Personal Info</a>
+                <a href="#achievements" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-gold hover:bg-white/5 transition-all">Achievements</a>
+                <a href="#parents" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-gold hover:bg-white/5 transition-all">Parents</a>
+                <a href="#contact" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-gold hover:bg-white/5 transition-all">Contact</a>
+            </nav>
+
+            <!-- Quick Action & Mobile Toggle -->
+            <div class="flex items-center gap-3">
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gold/10 text-gold border border-gold/30 hover:bg-gold hover:text-dark-bg font-medium text-sm transition-all duration-300">
+                    <i class="fa-solid me-1 fa-paper-plane text-xs"></i> Connect
+                </a>
+
+                <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden p-2 rounded-lg bg-white/5 text-gray-300 hover:text-gold focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl" id="menuIcon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden border-b border-white/10 bg-dark-bg/95 backdrop-blur-xl px-4 pt-2 pb-6 space-y-2">
+            <a href="#home" class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-gold/10 hover:text-gold">Home</a>
+            <a href="#personal" class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-gold/10 hover:text-gold">Personal Info</a>
+            <a href="#achievements" class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-gold/10 hover:text-gold">Achievements</a>
+            <a href="#parents" class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-gold/10 hover:text-gold">Parents Dedication</a>
+            <a href="#contact" class="mobile-link block px-4 py-3 rounded-lg text-base font-medium text-gray-200 hover:bg-gold/10 hover:text-gold">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="pt-20">
+
+        <!-- SECTION 1: HOME / HERO WITH CANVAS ANIMATION -->
+        <section id="home" class="min-h-[92vh] flex items-center justify-center relative overflow-hidden py-12">
+            <!-- Ambient Background Glows -->
+            <div class="absolute top-1/4 left-10 w-96 h-96 bg-gold/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-80 h-80 bg-amber-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+
+                <!-- Hero Text / Info (Left Col on Desktop) -->
+                <div class="lg:col-span-6 space-y-6 text-center lg:text-left order-2 lg:order-1">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold/10 border border-gold/30 text-gold text-xs font-mono tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-gold animate-ping"></span>
+                        BSIT STUDENT & TECH ENTHUSIAST
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight text-white leading-tight">
+                        Febrille Pigasen <br>
+                        <span class="gold-gradient-text">TEWAC</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-medium text-gold/90 font-mono">
+                        University of the Cordilleras
+                    </p>
+
+                    <div class="h-1 w-20 bg-gradient-to-r from-gold to-transparent mx-auto lg:mx-0 rounded-full"></div>
+
+                    <p class="text-xl font-semibold text-gray-200">
+                        "Building Skills. Creating Solutions. Ready to Contribute."
+                    </p>
+
+                    <p class="text-gray-400 text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+                        A motivated BSIT student with a strong foundation in technology, disciplined work ethic, and a genuine drive to grow in the IT field. Focused on applying knowledge through real projects and continuous learning.
+                    </p>
+
+                    <!-- CTAs & Replay Toggle -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#achievements" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-gold to-gold-dark text-dark-bg font-bold font-display tracking-wide hover:shadow-lg hover:shadow-gold/30 hover:scale-[1.02] active:scale-95 transition-all">
+                            View My Projects <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#personal" class="px-7 py-3.5 rounded-xl glass-panel text-white font-medium hover:border-gold/50 border border-white/10 hover:bg-white/5 active:scale-95 transition-all">
+                            About Me
+                        </a>
+                        <button id="replayBtn" aria-label="Replay Futuristic Assembly Sequence" title="Replay Robot Assembly Sequence" class="px-4 py-3.5 rounded-xl glass-panel text-gold border border-gold/30 hover:bg-gold/10 transition-all flex items-center gap-2 font-mono text-sm">
+                            <i class="fa-solid fa-rotate-right"></i> Replay Assembly
+                        </button>
+                    </div>
+
+                    <!-- Micro Badge Stats -->
+                    <div class="pt-6 grid grid-cols-3 gap-4 max-w-md mx-auto lg:mx-0 border-t border-white/10">
+                        <div class="text-center lg:text-left">
+                            <span class="block text-2xl font-bold font-display text-white">BSIT</span>
+                            <span class="text-xs text-gray-400 font-mono">Current Degree</span>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <span class="block text-2xl font-bold font-display text-gold">UC</span>
+                            <span class="text-xs text-gray-400 font-mono">University</span>
+                        </div>
+                        <div class="text-center lg:text-left">
+                            <span class="block text-2xl font-bold font-display text-white">100%</span>
+                            <span class="text-xs text-gray-400 font-mono">Dedication</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standout Robot Hand & Blinking Hologram Canvas Container (Right Col) -->
+                <div class="lg:col-span-6 order-1 lg:order-2 flex justify-center">
+                    <div class="relative w-full max-w-[500px] aspect-square rounded-2xl glass-panel gold-border-glow p-3 overflow-hidden shadow-2xl flex flex-col items-center justify-center">
+                        
+                        <!-- Top HUD Bar -->
+                        <div class="w-full flex items-center justify-between px-3 py-1.5 border-b border-white/10 text-[11px] font-mono text-gray-400">
+                            <span class="flex items-center gap-1.5 text-gold">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                HUD SYSTEM ACTIVE
+                            </span>
+                            <span id="canvasStatus" class="text-xs text-gold/80">PHASE 1: ROBOT ASSEMBLY</span>
+                        </div>
+
+                        <!-- Canvas viewport -->
+                        <div class="relative w-full flex-1 flex items-center justify-center">
+                            <canvas id="heroCanvas" class="w-full h-full block"></canvas>
+                            <div class="hud-scanline pointer-events-none"></div>
+                        </div>
+
+                        <!-- Bottom HUD Controls Info -->
+                        <div class="w-full px-3 py-2 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-gray-400">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-microchip text-gold"></i>
+                                <span>CYBERNETIC CORE</span>
+                            </div>
+                            <span id="fpsCounter" class="text-gray-500">60 FPS</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: PERSONAL INFORMATION -->
+        <section id="personal" class="py-20 relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-mono mb-3 border border-gold/20">
+                        <i class="fa-solid fa-user-gear"></i> BIOGRAPHY & PROFILE
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">
+                        Personal <span class="gold-gradient-text">Information</span>
+                    </h2>
+                    <p class="text-gray-400 mt-2 text-sm sm:text-base">
+                        Get to know my academic background, core strengths, and contact credentials.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    
+                    <!-- Left: Profile HUD Photo Frame & Core Info -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-panel rounded-2xl p-6 gold-border-glow relative overflow-hidden text-center">
+                            
+                            <!-- Profile Photo Card Placeholder / Frame -->
+                            <div class="relative w-44 h-44 mx-auto rounded-2xl p-1 bg-gradient-to-tr from-gold via-amber-500 to-dark-border shadow-xl mb-6 group">
+                                <div class="w-full h-full rounded-[14px] bg-dark-card overflow-hidden relative flex flex-col items-center justify-center border border-white/10">
+                                    <!-- Dynamic Avatar Graphic -->
+                                    <div class="w-20 h-20 rounded-full bg-gold/10 border border-gold/40 flex items-center justify-center text-gold text-4xl mb-1 group-hover:scale-110 transition-transform">
+                                        <i class="fa-solid fa-user-astronaut"></i>
+                                    </div>
+                                    <span class="text-xs font-mono text-gold/80">FEBRILLE TEWAC</span>
+                                    <div class="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                </div>
+                            </div>
+
+                            <h3 class="text-2xl font-bold font-display text-white">Febrille Pigasen Tewac</h3>
+                            <p class="text-gold font-mono text-sm mt-1">BSIT Student | University of the Cordilleras</p>
+
+                            <!-- Key Contact Cards -->
+                            <div class="mt-6 pt-6 border-t border-white/10 text-left space-y-3 font-mono text-xs sm:text-sm">
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">
+                                    <div class="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-base shrink-0">
+                                        <i class="fa-solid fa-graduation-cap"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <span class="block text-[10px] text-gray-400 uppercase">Degree Program</span>
+                                        <span class="text-gray-200 font-semibold truncate block">BS Information Technology</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">
+                                    <div class="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-base shrink-0">
+                                        <i class="fa-solid fa-building-columns"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <span class="block text-[10px] text-gray-400 uppercase">University</span>
+                                        <span class="text-gray-200 font-semibold truncate block">University of the Cordilleras</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">
+                                    <div class="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-base shrink-0">
+                                        <i class="fa-solid fa-location-dot"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <span class="block text-[10px] text-gray-400 uppercase">Location</span>
+                                        <span class="text-gray-200 font-semibold truncate block">Western Buyagan, La Trinidad, Benguet</span>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">
+                                    <div class="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-base shrink-0">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <span class="block text-[10px] text-gray-400 uppercase">Email</span>
+                                        <a href="mailto:tewacfebrille@gmail.com" class="text-gold font-semibold hover:underline truncate block">tewacfebrille@gmail.com</a>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-colors">
+                                    <div class="w-9 h-9 rounded-lg bg-gold/10 flex items-center justify-center text-gold text-base shrink-0">
+                                        <i class="fa-solid fa-phone"></i>
+                                    </div>
+                                    <div class="overflow-hidden">
+                                        <span class="block text-[10px] text-gray-400 uppercase">Phone</span>
+                                        <a href="tel:+639155886616" class="text-gray-200 font-semibold hover:text-gold truncate block">+63 915 588 6616</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Professional Summary & Core Strengths & Education -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Professional Summary Card -->
+                        <div class="glass-panel rounded-2xl p-6 border border-white/10 relative">
+                            <h4 class="text-lg font-bold font-display text-white flex items-center gap-2 mb-3">
+                                <i class="fa-solid fa-quote-left text-gold"></i> Professional Summary
+                            </h4>
+                            <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                                I am a BSIT student with a strong interest in technology and problem-solving. I am disciplined, adaptable, and capable of working under pressure. I am currently focused on developing practical skills and looking for opportunities where I can learn, contribute, and grow in a professional environment.
+                            </p>
+                        </div>
+
+                        <!-- Core Strengths / Skills -->
+                        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+                            <h4 class="text-lg font-bold font-display text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-bolt text-gold"></i> Core Strengths & Competencies
+                            </h4>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                
+                                <div class="p-3.5 rounded-xl bg-dark-card border border-white/5 hover:border-gold/40 hover:bg-white/5 transition-all flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-gauge-high"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Under Pressure Resilience</h5>
+                                        <p class="text-xs text-gray-400 mt-0.5">Ability to work effectively under pressure with strong focus.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-dark-card border border-white/5 hover:border-gold/40 hover:bg-white/5 transition-all flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-laptop-code"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Technical & Computer Skills</h5>
+                                        <p class="text-xs text-gray-400 mt-0.5">Solid foundational knowledge in systems, IT, & software.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-dark-card border border-white/5 hover:border-gold/40 hover:bg-white/5 transition-all flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-comments"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Professional Communication</h5>
+                                        <p class="text-xs text-gray-400 mt-0.5">Clear and structured verbal & written communication.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-dark-card border border-white/5 hover:border-gold/40 hover:bg-white/5 transition-all flex items-start gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-brain"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Fast Learner</h5>
+                                        <p class="text-xs text-gray-400 mt-0.5">Highly adaptable to new frameworks, tools, & workflows.</p>
+                                    </div>
+                                </div>
+
+                                <div class="p-3.5 rounded-xl bg-dark-card border border-white/5 hover:border-gold/40 hover:bg-white/5 transition-all flex items-start gap-3 sm:col-span-2">
+                                    <div class="w-8 h-8 rounded-lg bg-gold/10 flex items-center justify-center text-gold shrink-0 mt-0.5">
+                                        <i class="fa-solid fa-shield-check"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-white text-sm">Detail-Oriented & Reliable</h5>
+                                        <p class="text-xs text-gray-400 mt-0.5">Consistently committed to high standards of quality and accountability in tasks.</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Education History Timeline -->
+                        <div class="glass-panel rounded-2xl p-6 border border-white/10">
+                            <h4 class="text-lg font-bold font-display text-white mb-4 flex items-center gap-2">
+                                <i class="fa-solid fa-user-graduate text-gold"></i> Educational Timeline
+                            </h4>
+
+                            <div class="relative pl-6 space-y-6 border-l-2 border-gold/30">
+                                
+                                <!-- Higher Ed Node -->
+                                <div class="relative">
+                                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-gold border-4 border-dark-bg"></div>
+                                    <div class="flex items-center justify-between text-xs font-mono text-gold mb-1">
+                                        <span>CURRENTLY ENROLLED</span>
+                                        <span class="px-2 py-0.5 rounded bg-gold/10">College</span>
+                                    </div>
+                                    <h5 class="text-base font-bold text-white">Bachelor of Science in Information Technology (BSIT)</h5>
+                                    <p class="text-gray-300 text-sm">University of the Cordilleras</p>
+                                    <p class="text-xs text-gray-400 mt-1">Focusing on software development, network infrastructure, database systems, and IT solution deployment.</p>
+                                </div>
+
+                                <!-- Senior High Node -->
+                                <div class="relative">
+                                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-gray-500 border-4 border-dark-bg"></div>
+                                    <div class="flex items-center justify-between text-xs font-mono text-gray-400 mb-1">
+                                        <span>SENIOR HIGH SCHOOL</span>
+                                        <span class="px-2 py-0.5 rounded bg-white/5">Completed</span>
+                                    </div>
+                                    <h5 class="text-base font-bold text-white">TVL-ICT Track</h5>
+                                    <p class="text-gray-300 text-sm">Benguet National High School</p>
+                                    <p class="text-xs text-gray-400 mt-1">Specialized technical-vocational background in computer programming, hardware maintenance, and network systems basics.</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 3: ACHIEVEMENTS & PROJECTS -->
+        <section id="achievements" class="py-20 relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-mono mb-3 border border-gold/20">
+                        <i class="fa-solid fa-trophy"></i> PORTFOLIO & HIGHLIGHTS
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">
+                        Academic <span class="gold-gradient-text">Achievements</span> & Projects
+                    </h2>
+                    <p class="text-gray-400 mt-2 text-sm sm:text-base">
+                        A collection of technical milestones, academic practical projects, and skills applied in the IT field.
+                    </p>
+                </div>
+
+                <!-- Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Card 1 -->
+                    <div class="glass-panel rounded-2xl p-6 gold-border-glow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-network-wired animate-float"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gold px-2.5 py-1 rounded-full bg-gold/10">NETWORKING</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold font-display text-white group-hover:text-gold transition-colors">
+                                Laboratory Network Infrastructure & RDP
+                            </h3>
+
+                            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                                Applied foundational networking practices in configuring local IP configurations, Remote Desktop Protocols (RDP), and local peer sharing for academic laboratory exercises.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span><i class="fa-solid fa-check text-emerald-400 mr-1"></i> Practical Deployment</span>
+                            <span class="text-gold">BSIT Core</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="glass-panel rounded-2xl p-6 gold-border-glow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-microchip animate-float" style="animation-delay: 1s;"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gold px-2.5 py-1 rounded-full bg-gold/10">HARDWARE & SYSTEMS</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold font-display text-white group-hover:text-gold transition-colors">
+                                TVL-ICT Technical Hardware & Diagnostics
+                            </h3>
+
+                            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                                Completed hands-on training at Benguet National High School focused on system assembly, OS deployment, diagnostic troubleshooting, and preventive maintenance.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span><i class="fa-solid fa-award text-gold mr-1"></i> TVL-ICT Track</span>
+                            <span class="text-gold">Benguet NHS</span>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="glass-panel rounded-2xl p-6 gold-border-glow group hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <div class="w-12 h-12 rounded-xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-solid fa-code animate-float" style="animation-delay: 2s;"></i>
+                                </div>
+                                <span class="text-xs font-mono text-gold px-2.5 py-1 rounded-full bg-gold/10">DEVELOPMENT</span>
+                            </div>
+
+                            <h3 class="text-xl font-bold font-display text-white group-hover:text-gold transition-colors">
+                                Algorithm & Logic Circuit Engineering
+                            </h3>
+
+                            <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                                Developed key logic algorithms, data structure operations, and computer fundamentals as part of coursework at the University of the Cordilleras.
+                            </p>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400 font-mono">
+                            <span><i class="fa-solid fa-laptop-code text-cyan-400 mr-1"></i> Software Foundations</span>
+                            <span class="text-gold">UC Campus</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: PARENTS DEDICATION -->
+        <section id="parents" class="py-20 relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-mono mb-3 border border-gold/20">
+                        <i class="fa-solid fa-heart"></i> HONOR & GRATITUDE
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">
+                        Dedicated To My <span class="gold-gradient-text">Parents</span>
+                    </h2>
+                    <p class="text-gray-400 mt-2 text-sm sm:text-base">
+                        A tribute to the unconditional support, sacrifices, and guidance that fuel my academic journey.
+                    </p>
+                </div>
+
+                <div class="max-w-4xl mx-auto">
+                    <div class="glass-panel rounded-3xl p-8 sm:p-12 gold-border-glow relative overflow-hidden">
+                        
+                        <!-- Background Glow Accent -->
+                        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+                            
+                            <!-- Parents Visual / Placeholder Frame -->
+                            <div class="md:col-span-5 flex flex-col items-center justify-center">
+                                <div class="relative w-48 h-48 sm:w-56 sm:h-56 rounded-full p-1 bg-gradient-to-br from-gold via-amber-400 to-amber-700 shadow-2xl">
+                                    <div class="w-full h-full rounded-full bg-dark-bg flex flex-col items-center justify-center border border-white/10 p-4 text-center">
+                                        <div class="w-16 h-16 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-3xl mb-2">
+                                            <i class="fa-solid fa-people-roof"></i>
+                                        </div>
+                                        <span class="font-display font-bold text-white text-sm">Tewac Family</span>
+                                        <span class="text-[11px] font-mono text-gold mt-1">Pillars of Strength</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Heartfelt Tribute Message -->
+                            <div class="md:col-span-7 space-y-4">
+                                <i class="fa-solid fa-quote-left text-3xl text-gold/40"></i>
+                                <p class="text-gray-200 text-base sm:text-lg italic leading-relaxed">
+                                    "To my beloved parents, everything I achieve today and in the future is built upon the foundation of your hard work, patience, and unwavering belief in me. Thank you for guiding me with wisdom and inspiring me to pursue excellence in my BSIT studies."
+                                </p>
+                                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                                    <div>
+                                        <span class="block text-white font-bold font-display">Febrille Pigasen Tewac</span>
+                                        <span class="text-xs text-gold font-mono">Grateful Son & BSIT Student</span>
+                                    </div>
+                                    <i class="fa-solid fa-leaf text-gold text-xl"></i>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: CONTACT & FOOTER -->
+        <section id="contact" class="py-20 relative border-t border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold/10 text-gold text-xs font-mono mb-3 border border-gold/20">
+                        <i class="fa-solid fa-paper-plane"></i> GET IN TOUCH
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-display font-extrabold text-white">
+                        Let's Connect & <span class="gold-gradient-text">Collaborate</span>
+                    </h2>
+                    <p class="text-gray-400 mt-2 text-sm sm:text-base">
+                        Open for internship opportunities, academic collaboration, and technical discussions.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                    
+                    <!-- Direct Email Card -->
+                    <a href="mailto:tewacfebrille@gmail.com" class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-gold/50 hover:scale-[1.02] transition-all group flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-lg mb-1">Email Me</h4>
+                        <p class="text-gray-400 text-xs font-mono mb-3">Direct Communication</p>
+                        <span class="text-gold font-mono text-sm break-all">tewacfebrille@gmail.com</span>
+                    </a>
+
+                    <!-- Direct Call Card -->
+                    <a href="tel:+639155886616" class="glass-panel p-6 rounded-2xl border border-white/10 hover:border-gold/50 hover:scale-[1.02] transition-all group flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-lg mb-1">Call / SMS</h4>
+                        <p class="text-gray-400 text-xs font-mono mb-3">Available Mobile</p>
+                        <span class="text-gold font-mono text-sm">+63 915 588 6616</span>
+                    </a>
+
+                    <!-- Location Card -->
+                    <div class="glass-panel p-6 rounded-2xl border border-white/10 flex flex-col items-center text-center">
+                        <div class="w-14 h-14 rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center text-gold text-2xl mb-4">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <h4 class="text-white font-bold text-lg mb-1">Location</h4>
+                        <p class="text-gray-400 text-xs font-mono mb-3">Benguet, Philippines</p>
+                        <span class="text-gray-300 text-xs">Western Buyagan, La Trinidad</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 bg-dark-bg py-10 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <!-- Logo & Info -->
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-gold text-dark-bg font-bold flex items-center justify-center font-display">
+                    F
+                </div>
+                <span class="text-sm font-mono text-gray-400">
+                    © 2026 <strong class="text-white">Febrille Pigasen Tewac</strong>. University of the Cordilleras.
+                </span>
+            </div>
+
+            <!-- Dynamic Local Time Badge -->
+            <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 font-mono text-xs text-gray-400">
+                <i class="fa-regular fa-clock text-gold"></i>
+                <span>La Trinidad Local Time: </span>
+                <span id="localClock" class="text-gold font-bold">16:17 PST</span>
+            </div>
+
+            <!-- Back to top -->
+            <a href="#home" class="p-2.5 rounded-xl bg-white/5 hover:bg-gold hover:text-dark-bg border border-white/10 transition-all text-gray-300">
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+
+    <!-- ==================== FUTURISTIC CANVAS ANIMATION ENGINE ==================== -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+
+            /* Mobile Menu Toggle */
+            const menuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            document.querySelectorAll('.mobile-link').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            /* Local Dynamic Clock Script */
+            function updateClock() {
+                const clockEl = document.getElementById('localClock');
+                if (clockEl) {
+                    const now = new Date();
+                    clockEl.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                }
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+
+            /* Replay Button Listener */
+            const replayBtn = document.getElementById('replayBtn');
+            if(replayBtn) {
+                replayBtn.addEventListener('click', () => {
+                    initSequence();
+                });
+            }
+
+            /* ===================================================
+               ROBOT HAND ASSEMBLY & BLINKING HOLOGRAM CANVAS ENGINE
+               =================================================== */
+            const canvas = document.getElementById('heroCanvas');
+            const ctx = canvas.getContext('2d');
+            const statusEl = document.getElementById('canvasStatus');
+            const fpsEl = document.getElementById('fpsCounter');
+
+            let width, height;
+            function resizeCanvas() {
+                const rect = canvas.getBoundingClientRect();
+                canvas.width = rect.width * window.devicePixelRatio;
+                canvas.height = rect.height * window.devicePixelRatio;
+                width = canvas.width;
+                height = canvas.height;
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+            }
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
+            // Target Text Sequence
+            const nameText = "FEBRILLE PIGASEN TEWAC";
+            let charIndex = 0;
+            let buildProgress = 0;
+            let currentSequence = 'ROBOT_BUILD'; // 'ROBOT_BUILD' -> 'RETRAC' -> 'HOLOGRAM'
+            let robotArm = { x: 0, y: 0, targetX: 0, targetY: 0 };
+            let lastFrameTime = performance.now();
+            let frameCount = 0;
+            let fps = 60;
+
+            // Hologram Blinking & Node States
+            let blinkTimer = 0;
+            let isBlinking = false;
+            let holoAngle = 0;
+
+            // Hologram Face Particle Points Setup
+            const facePoints = [];
+            // Outline Head Shape
+            for (let i = 0; i < 36; i++) {
+                let a = (i / 36) * Math.PI * 2;
+                let rx = Math.cos(a) * 65;
+                let ry = Math.sin(a) * 85 + (Math.sin(a) > 0 ? 15 : 0);
+                facePoints.push({ x: rx, y: ry, type: 'outline' });
+            }
+            // Eyes
+            const leftEye = [-25, -25];
+            const rightEye = [25, -25];
+            // Nose
+            const nose = [[0, -10], [-8, 15], [8, 15]];
+            // Mouth
+            const mouth = [[-25, 40], [-10, 48], [10, 48], [25, 40]];
+
+            function initSequence() {
+                charIndex = 0;
+                buildProgress = 0;
+                currentSequence = 'ROBOT_BUILD';
+                if(statusEl) statusEl.textContent = "PHASE 1: ROBOTIC ARM ASSEMBLY";
+            }
+
+            initSequence();
+
+            // Render Function Loop
+            function draw() {
+                const now = performance.now();
+                const delta = (now - lastFrameTime) / 1000;
+                lastFrameTime = now;
+
+                frameCount++;
+                if (frameCount % 30 === 0) {
+                    fps = Math.round(1 / delta);
+                    if (fpsEl) fpsEl.textContent = `${fps} FPS`;
+                }
+
+                // Render Background Clears with slight fade for particle glow
+                const displayW = canvas.width / window.devicePixelRatio;
+                const displayH = canvas.height / window.devicePixelRatio;
+
+                ctx.fillStyle = '#0a0a0e';
+                ctx.fillRect(0, 0, displayW, displayH);
+
+                // Draw Grid Overlay Background on Canvas
+                ctx.strokeStyle = 'rgba(255, 215, 0, 0.04)';
+                ctx.lineWidth = 1;
+                const gridSize = 25;
+                for (let x = 0; x < displayW; x += gridSize) {
+                    ctx.beginPath();
+                    ctx.moveTo(x, 0);
+                    ctx.lineTo(x, displayH);
+                    ctx.stroke();
+                }
+                for (let y = 0; y < displayH; y += gridSize) {
+                    ctx.beginPath();
+                    ctx.moveTo(0, y);
+                    ctx.lineTo(displayW, y);
+                    ctx.stroke();
+                }
+
+                const centerX = displayW / 2;
+                const centerY = displayH / 2;
+
+                // PHASE 1: ROBOT ASSEMBLY OF TEXT
+                if (currentSequence === 'ROBOT_BUILD') {
+                    buildProgress += delta * 1.2;
+                    charIndex = Math.min(Math.floor(buildProgress * 4), nameText.length);
+
+                    // Target positions for laser beam
+                    const targetX = centerX - 120 + (charIndex * 11);
+                    const targetY = centerY + 70;
+
+                    robotArm.targetX = targetX;
+                    robotArm.targetY = targetY;
+
+                    // Smooth arm spring interpolation
+                    robotArm.x += (robotArm.targetX - robotArm.x) * 0.15;
+                    robotArm.y += (robotArm.targetY - robotArm.y) * 0.15;
+
+                    // Draw Drawn Text So Far
+                    ctx.font = '700 15px "Fira Code", monospace';
+                    ctx.fillStyle = '#FFD700';
+                    ctx.textAlign = 'center';
+                    const partialText = nameText.substring(0, charIndex);
+                    ctx.shadowColor = '#FFD700';
+                    ctx.shadowBlur = 12;
+                    ctx.fillText(partialText, centerX, centerY + 70);
+                    ctx.shadowBlur = 0;
+
+                    // Draw Interactive Cyber Robotic Manipulator Arm
+                    drawRobotArm(ctx, 35, 30, robotArm.x, robotArm.y);
+
+                    // Check transition to Hologram Phase
+                    if (charIndex >= nameText.length && buildProgress > nameText.length / 3.5 + 1) {
+                        currentSequence = 'HOLOGRAM';
+                        if (statusEl) statusEl.textContent = "PHASE 2: HOLOGRAPHIC FACE HUD";
+                    }
+                } 
+
+                // PHASE 2: HOLOGRAPHIC BLINKING FACE & HUD
+                if (currentSequence === 'HOLOGRAM') {
+                    holoAngle += delta * 0.8;
+
+                    // Render Completed Text at Bottom
+                    ctx.font = '700 15px "Fira Code", monospace';
+                    ctx.fillStyle = '#FFD700';
+                    ctx.textAlign = 'center';
+                    ctx.shadowColor = '#FFD700';
+                    ctx.shadowBlur = 10;
+                    ctx.fillText(nameText, centerX, centerY + 90);
+                    ctx.shadowBlur = 0;
+
+                    // Handle Eye Blinking Timer Logic
+                    blinkTimer += delta;
+                    if (blinkTimer > 3.5) {
+                        isBlinking = true;
+                        if (blinkTimer > 3.7) {
+                            isBlinking = false;
+                            blinkTimer = 0;
+                        }
+                    }
+
+                    // Render 3D Rotating Mesh Grid Rings around Face
+                    ctx.save();
+                    ctx.translate(centerX, centerY - 25);
+
+                    // Outer Ring 1
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.25)';
+                    ctx.lineWidth = 1.5;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, 110, 45, holoAngle, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Outer Ring 2 Counter Rotating
+                    ctx.strokeStyle = 'rgba(245, 176, 65, 0.15)';
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, 125, 55, -holoAngle * 0.7, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Render Holographic Face Nodes
+                    ctx.fillStyle = '#FFD700';
+                    ctx.strokeStyle = '#FFD700';
+
+                    // Draw Face Contour Wireframe Points
+                    facePoints.forEach(p => {
+                        let rotX = p.x * Math.cos(Math.sin(holoAngle) * 0.2);
+                        ctx.beginPath();
+                        ctx.arc(rotX, p.y, 2, 0, Math.PI * 2);
+                        ctx.fill();
+                    });
+
+                    // Draw Blinking Eyes
+                    const eyeScaleY = isBlinking ? 0.1 : 1.0;
+
+                    // Left Eye
+                    ctx.beginPath();
+                    ctx.ellipse(leftEye[0], leftEye[1], 10, 6 * eyeScaleY, 0, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(255, 215, 0, 0.9)';
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Right Eye
+                    ctx.beginPath();
+                    ctx.ellipse(rightEye[0], rightEye[1], 10, 6 * eyeScaleY, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.stroke();
+
+                    // Nose Wireframe
+                    ctx.beginPath();
+                    ctx.moveTo(nose[0][0], nose[0][1]);
+                    ctx.lineTo(nose[1][0], nose[1][1]);
+                    ctx.lineTo(nose[2][0], nose[2][1]);
+                    ctx.closePath();
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.6)';
+                    ctx.stroke();
+
+                    // Mouth Wireframe
+                    ctx.beginPath();
+                    ctx.moveTo(mouth[0][0], mouth[0][1]);
+                    ctx.quadraticCurveTo(0, mouth[1][1], mouth[3][0], mouth[3][1]);
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.8)';
+                    ctx.stroke();
+
+                    // Futuristic HUD Target Crosshairs
+                    ctx.strokeStyle = 'rgba(255, 215, 0, 0.4)';
+                    ctx.lineWidth = 1;
+                    ctx.beginPath();
+                    ctx.moveTo(-130, 0); ctx.lineTo(-100, 0);
+                    ctx.moveTo(100, 0); ctx.lineTo(130, 0);
+                    ctx.moveTo(0, -110); ctx.lineTo(0, -85);
+                    ctx.moveTo(0, 85); ctx.lineTo(0, 110);
+                    ctx.stroke();
+
+                    ctx.restore();
+                }
+
+                requestAnimationFrame(draw);
+            }
+
+            // Function to render Robotic Arm Joint Manipulator
+            function drawRobotArm(ctx, basex, basey, tipX, tipY) {
+                // Calculate Joint Positions (IK approximation)
+                const dx = tipX - basex;
+                const dy = tipY - basey;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                const jointX = basex + dx * 0.5 + 30;
+                const jointY = basey + dy * 0.3 - 20;
+
+                // Arm Segments Line Styling
+                ctx.strokeStyle = '#64748b';
+                ctx.lineWidth = 6;
+                ctx.lineCap = 'round';
+
+                // Segment 1
+                ctx.beginPath();
+                ctx.moveTo(basex, basey);
+                ctx.lineTo(jointX, jointY);
+                ctx.stroke();
+
+                // Segment 2
+                ctx.strokeStyle = '#94a3b8';
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                ctx.moveTo(jointX, jointY);
+                ctx.lineTo(tipX, tipY);
+                ctx.stroke();
+
+                // Joints
+                ctx.fillStyle = '#FFD700';
+                ctx.beginPath();
+                ctx.arc(basex, basey, 7, 0, Math.PI * 2);
+                ctx.fill();
+
+                ctx.beginPath();
+                ctx.arc(jointX, jointY, 5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Laser Tip Manipulator Head
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(tipX, tipY, 4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Glowing Laser Beam onto canvas text
+                ctx.strokeStyle = 'rgba(255, 215, 0, 0.9)';
+                ctx.lineWidth = 2;
+                ctx.shadowColor = '#FFD700';
+                ctx.shadowBlur = 15;
+                ctx.beginPath();
+                ctx.moveTo(tipX, tipY);
+                ctx.lineTo(tipX, tipY + 12);
+                ctx.stroke();
+                ctx.shadowBlur = 0;
+            }
+
+            // Start animation loop
+            requestAnimationFrame(draw);
+
+        });
+    </script>
+</body>
+</html>
